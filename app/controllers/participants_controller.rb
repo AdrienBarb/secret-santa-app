@@ -6,7 +6,7 @@ class ParticipantsController < ApplicationController
   def create
     @participant = @event.participants.build(participant_params)
     if @participant.save!
-      flash[:notice] = "#{@participant.user_name} a bien été ajouté à l'événement !"
+      flash[:notice] = "#{@participant.user_name.capitalize!} a bien été ajouté à l'événement !"
       redirect_to event_path(@participant.event)
     else
       flash[:alert] = "Le participant n'a pas pu être ajouté à l'événement !"

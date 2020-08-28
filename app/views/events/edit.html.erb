@@ -1,18 +1,21 @@
-<h2>Modifier l'évévenement</h2>
+<div class="form-wrapper">
+  <div class="form">
+    <h2>Modifier l'évévenement</h2>
 
-<%= form_for(@event) do |f| %>
+    <%= form_for(@event) do |f| %>
 
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+      <div class="field">
+        <%= f.text_field :title, placeholder: "Titre de l'événement", class: "form-field" %>
+      </div>
+
+      <div class="field">
+        <%= f.number_field :price, placeholder: "Prix du cadeau", class: "form-field" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Modifier", id: 'button-valid' %>
+      </div>
+    <% end %>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :price %><br />
-    <%= f.number_field :price %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Modifier" %>
-  </div>
-<% end %>
