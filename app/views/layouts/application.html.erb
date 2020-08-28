@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SecretSantaApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+
+    <div class="nav-bar">
+      <div class="nav-bar-left">
+        <%= link_to 'Home', root_path  %>
+        <% if user_signed_in? %>
+          <%= link_to 'Mes évènement', events_path %>
+        <% end %>
+      </div>
+      <div class="nav-bar-right">
+      <% if user_signed_in? %>
+        <%= link_to 'Se déconnecter', destroy_user_session_path, method: :delete %>
+        <p> <%= current_user.user_name %> </p>
+      <% else %>
+        <%= link_to 'Se connecter', user_session_path  %>
+        <%= link_to "S'enregistrer", new_user_registration_path %>
+      <% end %>
+      </div>
+    </div>
+
+    <div class="layout">
+      <% flash.each do |key, message| %>
+        <div class="alert alert-<%= key %>">
+            <%= message %>
+        </div>
+      <% end %>
+
+      <%= yield %>
+
+    </div>
+
+  </body>
+</html>

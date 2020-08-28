@@ -1,0 +1,28 @@
+<h1><%= @event.title %> </h1>
+<h2> <%= @event.price %> </h2>
+
+<%= link_to "Modifier l'évévenement", edit_event_path(@event) %>
+
+
+<% @event.participants.each do |participant| %>
+  <%= render 'shared/participant-card', participant: participant, event: @event %>
+<% end %>
+
+<%= form_for [@event, @participant] do |f| %>
+
+  <div class="field">
+    <%= f.label :user_name %><br />
+    <%= f.text_field :user_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Ajouter" %>
+  </div>
+<% end %>
+
+<%= link_to 'Generer', generator_event_path(@event)  %>

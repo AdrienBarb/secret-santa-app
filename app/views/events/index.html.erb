@@ -1,0 +1,8 @@
+<h1>Mes événement:</h1>
+
+<% @events.each do |event| %>
+  <div class="event-card-wrap">
+     <h2> <%= link_to event.title, event_path(event) %> </h2>
+     <p> <%= event.participants.count %> Participants</p>
+  </div>
+<% end %>

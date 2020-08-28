@@ -1,0 +1,18 @@
+<h2>Nouvel event</h2>
+
+<%= form_for(@event) do |f| %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price %><br />
+    <%= f.number_field :price %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Creer un evennement" %>
+  </div>
+<% end %>
