@@ -1,6 +1,10 @@
 <div class="events-index-wrapper">
   <div class="events-index">
-    <h1>Mes événement:</h1>
+    <% if @events.empty? %>
+      <h1>Vous n'avez pas encore d'événements !</h1>
+    <% else %>
+      <h1>Mes événements:</h1>
+    <% end %>
 
     <% @events.each do |event| %>
       <%= render 'shared/event-card', event: event %>

@@ -2,8 +2,8 @@
   <div class="event-show">
     <div class="event-info-wrapper">
       <div class="event-info">
-        <h2>Evènement: <%= @event.title %> </h2>
-        <h2>Prix du cadeaux: <%= @event.price %> </h2>
+        <h2>Evénement: <%= @event.title %> </h2>
+        <h2>Prix du cadeau: <%= @event.price %> euros</h2>
       </div>
 
       <%= link_to "Modifier l'évévenement", edit_event_path(@event), id: 'button-classic' %>
@@ -11,7 +11,7 @@
 
 
     <div class="participants-wrapper">
-      <h3>Partipants: </h3>
+      <h3>Participants: </h3>
       <% @event.participants.each do |participant| %>
         <%= render 'shared/participant-card', participant: participant, event: @event %>
       <% end %>
@@ -40,7 +40,7 @@
 
 
     <div class="generate-link">
-       <%= link_to 'Generer', generator_event_path(@event), id: 'button-create'  %>
+       <%= link_to 'Générer', generator_event_path(@event), id: 'button-create'  %>
     </div>
 
   </div>
