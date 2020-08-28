@@ -1,7 +1,7 @@
 <div class="participant-card">
   <p> <%= participant.user_name %> - <%=participant.email %></p>
   <% if @event.user.email != participant.email %>
-    <%= link_to 'Suprimer', event_participant_path(@event, participant), method: :delete, id: 'button-delete' %>
+    <%= link_to 'Supprimer', event_participant_path(@event, participant), method: :delete, id: 'button-delete' %>
   <% end %>
 </div>
 
