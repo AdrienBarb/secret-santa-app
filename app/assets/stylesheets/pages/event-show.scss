@@ -1,0 +1,39 @@
+.event-show-wraper {
+  max-width: 900px;
+  margin: 2rem auto;
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+  padding: 2rem;
+}
+
+.event-info-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  margin-bottom: 2rem;
+
+
+  .event-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 40%;
+  }
+}
+
+.participants-wrapper {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+.add-participants-form-wrapper {
+  margin-bottom: 6rem;
+}
+
+.generate-link {
+  text-align: center;
+}
+

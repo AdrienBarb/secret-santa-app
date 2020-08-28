@@ -1,28 +1,49 @@
-<h1><%= @event.title %> </h1>
-<h2> <%= @event.price %> </h2>
+<div class="event-show-wraper">
+  <div class="event-show">
+    <div class="event-info-wrapper">
+      <div class="event-info">
+        <h2>Evènement: <%= @event.title %> </h2>
+        <h2>Prix du cadeaux: <%= @event.price %> </h2>
+      </div>
 
-<%= link_to "Modifier l'évévenement", edit_event_path(@event) %>
+      <%= link_to "Modifier l'évévenement", edit_event_path(@event), id: 'button-classic' %>
+    </div>
 
 
-<% @event.participants.each do |participant| %>
-  <%= render 'shared/participant-card', participant: participant, event: @event %>
-<% end %>
+    <div class="participants-wrapper">
+      <h3>Partipants: </h3>
+      <% @event.participants.each do |participant| %>
+        <%= render 'shared/participant-card', participant: participant, event: @event %>
+      <% end %>
+    </div>
 
-<%= form_for [@event, @participant] do |f| %>
+    <div class="add-participants-form-wrapper">
+      <h3>Ajouter des participants:</h3>
 
-  <div class="field">
-    <%= f.label :user_name %><br />
-    <%= f.text_field :user_name %>
+      <%= form_for [@event, @participant] do |f| %>
+
+        <div class="add-participants-form">
+          <div class="field">
+            <%= f.text_field :user_name, placeholder: 'Prénom', class: 'form-field' %>
+          </div>
+
+          <div class="field">
+            <%= f.email_field :email, placeholder: 'Adresse mail', class: 'form-field' %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "Ajouter", id: 'button-add' %>
+          </div>
+        <% end %>
+        </div>
+    </div>
+
+
+    <div class="generate-link">
+       <%= link_to 'Generer', generator_event_path(@event), id: 'button-create'  %>
+    </div>
+
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit "Ajouter" %>
-  </div>
-<% end %>
-
-<%= link_to 'Generer', generator_event_path(@event)  %>
